@@ -55,4 +55,11 @@ const trim = str => str.trim();
 const wrapInDiv = str => `<div>${str}</div>`;
 
 // Function composition
-const result = wrapInDiv(trim(input));
+// const result = wrapInDiv(trim(input));
+
+// Using LODASH to revamp the above code ^^ 
+
+import { compose, pipe } from "lodash/fp";
+
+const transform = pipe(trim,wrapInDiv); // List our functions in the order we want to apply them. 
+transform(input); // Same as wrapInDiv(trim(input));
