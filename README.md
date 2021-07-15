@@ -35,5 +35,3 @@
 * Simple ui/data flow
 * Static data
 
-## Setting up the Dev Server
-
