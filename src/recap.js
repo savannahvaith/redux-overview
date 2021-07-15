@@ -64,6 +64,8 @@ import { compose, pipe } from "lodash/fp";
 const transform = pipe(trim,wrapInDiv); // List our functions in the order we want to apply them. 
 transform(input); // Same as wrapInDiv(trim(input));
 
+// CURRYING: 
+
 // If we wanted to create another wrap function that returns a span 
 
 const wrapInSpan = str => `<span>${str}</span>`; 
