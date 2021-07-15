@@ -63,3 +63,20 @@ import { compose, pipe } from "lodash/fp";
 
 const transform = pipe(trim,wrapInDiv); // List our functions in the order we want to apply them. 
 transform(input); // Same as wrapInDiv(trim(input));
+
+// CURRYING: 
+
+// If we wanted to create another wrap function that returns a span 
+
+const wrapInSpan = str => `<span>${str}</span>`; 
+// This repeats code on line 55
+// Instead, we can write more robust code:
+const wrap = (type, str) => `<${type}>${str}</${type}>`;
+
+// In our pipe, we can't pass a function with two parameters.. 
+// So we need to use currying..
+
+const curryWrap = (type) => str => `<${type}>${str}</${type}>`;
+
+const revampTransform = pipe(trim,curryWrap("div"));
+console.log(revampTransform(input));
